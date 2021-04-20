@@ -1,14 +1,29 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './itemDetail'
-function itemDetailContainer() {
+import Spinner from '../../components/loader/loader'
+import { useParams } from 'react-router'
+function ItemDetailContainer({match}) {
 
-    // const [state, setstate] = useState()
+    const [item, setItem] = useState({})
+    const [loading, setLoading] = useState(false)
+    const {id} = useParams()
+    useEffect(() => {
+        setLoading(true)
+        axios.get("https://joako20.github.io/json-load/productos.json").then(
+            (res)=>{
+                setItem(res.data.find(fruta => fruta.id === Number(id)))
+            }
+        )
+        setLoading(false)
+        
+    },[])
     
     return (
         <div>
-            
+            {loading ? <Spinner/> : <ItemDetail item={item}/>}
         </div>
     )
 }
 
-export default itemDetailContainer
+export default ItemDetailContainer
