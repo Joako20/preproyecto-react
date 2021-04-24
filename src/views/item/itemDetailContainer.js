@@ -12,7 +12,7 @@ function ItemDetailContainer({match}) {
         setLoading(true)
         axios.get("https://joako20.github.io/json-load/productos.json").then(
             (res)=>{
-                setItem(res.data.find(fruta => fruta.id === Number(id)))
+                setItem(res.data.find(arry => arry.id === Number(id)))
             }
         )
         setLoading(false)
