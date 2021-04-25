@@ -6,6 +6,7 @@ import Contact from './views/contact/contact'
 import Navigation from './components/navigation/navigation'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import ItemDetailContainer from './views/item/itemDetailContainer'
+import Cart from './views/cart/cart'
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path ="/About" component={About}/>
         <Route path ="/Contact" component={Contact}/>
         <Route path ="/item/:id" component={ItemDetailContainer}/>
-        <Route path ="/cart" />
+        <Route path ="/cart" component={Cart}/>
       </Switch>
     </div>
   </Router>

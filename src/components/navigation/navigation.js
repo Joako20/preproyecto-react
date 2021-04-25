@@ -7,6 +7,7 @@ function Navigation() {
             <ul>
                 <Link to="/about"><li>Sobre Nosotros</li></Link>
                 <Link to="/contact"><li>Contacto</li></Link>
+                <Link to="/cart"><li>Carrito</li></Link>
             </ul>
         </nav>
     )

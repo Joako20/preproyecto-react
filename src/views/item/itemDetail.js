@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect,  } from "react";
 import { Card, Image } from 'semantic-ui-react'
+import ItemCount from '../../components/itemCount/itemCount'
+import {Link} from 'react-router-dom'
 
-const itemDetail = ({item}) => (
+function ItemDetail ({ item }){
+  
+  
+  
+  const [value, setValue] = useState(null)
+  
+  const onAdd = (contador) => {
+    console.log(contador)
+    setValue(contador);
+  };
+  
+  
+  return <>
   
   <Card>
     <Image src='/images/avatar/large/matthew.png' wrapped ui={false} />
@@ -18,7 +32,12 @@ const itemDetail = ({item}) => (
       ${item.precio}
     </Card.Content>
   </Card>
-  
-)
 
-export default itemDetail
+  {/* remplazar props al actualizar json */}
+  {value ? <Link to="/cart"><button>Terminar mi compra</button></Link> : <ItemCount stock={true} max="5" onAdd={onAdd} />}
+
+  </>
+}
+
+
+export default ItemDetail
