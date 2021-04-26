@@ -8,7 +8,7 @@ function ItemDetailContainer() {
 
     const [item, setItem] = useState(null)
     const {id} = useParams()
-
+    
     
 
     useEffect(() => {
@@ -20,7 +20,7 @@ function ItemDetailContainer() {
         )
     
         
-    },[])
+    },[id])
 
     
     return (

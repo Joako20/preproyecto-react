@@ -1,11 +1,9 @@
-import React, { useState, useEffect,  } from "react";
+import React, { useState } from "react";
 import { Card, Image } from 'semantic-ui-react'
 import ItemCount from '../../components/itemCount/itemCount'
 import {Link} from 'react-router-dom'
 
 function ItemDetail ({ item }){
-  
-  
   
   const [value, setValue] = useState(null)
   

@@ -5,8 +5,8 @@ function Navigation() {
     return (
         <nav>
             <ul>
-                <Link to="/about"><li>Sobre Nosotros</li></Link>
-                <Link to="/contact"><li>Contacto</li></Link>
+                <Link to="/category/Xbox"><li>Xbox</li></Link>
+                <Link to="/category/Playstation"><li>Playstation</li></Link>
                 <Link to="/cart"><li>Carrito</li></Link>
             </ul>
         </nav>
