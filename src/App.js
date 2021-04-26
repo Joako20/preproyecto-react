@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/header/header'
-import Home from './views/home/home'
+
 import Navigation from './components/navigation/navigation'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import ItemDetailContainer from './views/item/itemDetailContainer'
@@ -13,7 +13,7 @@ function App() {
       <Header/>
       <Navigation/>
       <Switch>
-        <Route path ="/" exact component={Home}/>
+        <Route path ="/" exact component={CardContainer}/>
         <Route path ="/item/:id" component={ItemDetailContainer}/>
         <Route path ="/category/:id" component={CardContainer}/>
         <Route path ="/cart" component={Cart}/>
