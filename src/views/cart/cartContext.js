@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useState } from 'react'
 import ItemDetail from '../item/itemDetail';
 
-export const CartContext = createContext("dou");
+export const CartContext = createContext("fruta");
 
 export function CartProvider({children}) {
 
@@ -22,9 +22,9 @@ export function CartProvider({children}) {
     //     return
     // }
     return (
-    <CartContext.provider value={"hola"}>
+    <CartContext.Provider value={"hola"}>
         <ItemDetail/>
-    </CartContext.provider>
+    </CartContext.Provider>
     );
 }
 

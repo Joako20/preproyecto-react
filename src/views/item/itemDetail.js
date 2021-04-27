@@ -4,10 +4,13 @@ import ItemCount from '../../components/itemCount/itemCount'
 import {Link} from 'react-router-dom'
 import { CartContext } from "../cart/cartContext";
 
+
 function ItemDetail ({ item }){
   
-  const valueC = useContext()
+  const valueC = useContext(CartContext)
   console.log(valueC)
+  
+  
   const [value, setValue] = useState(null)
   
   const onAdd = (contador) => {
