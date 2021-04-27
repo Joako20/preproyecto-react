@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card, Image } from 'semantic-ui-react'
 import ItemCount from '../../components/itemCount/itemCount'
 import {Link} from 'react-router-dom'
+import { CartContext } from "../cart/cartContext";
 
 function ItemDetail ({ item }){
   
+  const valueC = useContext()
+  console.log(valueC)
   const [value, setValue] = useState(null)
   
   const onAdd = (contador) => {
@@ -30,7 +33,7 @@ function ItemDetail ({ item }){
       ${item.precio}
     </Card.Content>
   </Card>
-
+  <h1>{valueC}</h1>
   {/* remplazar props al actualizar json */}
   {value ? <Link to="/cart"><button>Terminar mi compra</button></Link> : <ItemCount stock={true} max="5" onAdd={onAdd} />}
 
