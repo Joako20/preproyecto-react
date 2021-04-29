@@ -7,18 +7,22 @@ import { CartContext } from "../cart/cartContext";
 
 function ItemDetail ({ item }){
   
-  const valueC = useContext(CartContext)
-  console.log(valueC)
-  
-  
   const [value, setValue] = useState(null)
   
+  const {compraId,addItem,setCompraId,removeItem} = useContext(CartContext)
+
   const onAdd = (contador) => {
-    console.log(contador)
+    
     setValue(contador);
+    
+    addItem(item,contador)
+    
   };
   
-  
+  // Me renderza desde un principio si no pongo removeItem en una constante
+  const onRemove = ()=>{
+    removeItem(item.id)
+  }
   return <>
   
   <Card>
@@ -36,7 +40,9 @@ function ItemDetail ({ item }){
       ${item.precio}
     </Card.Content>
   </Card>
-  <h1>{valueC}</h1>
+  <button onClick={onRemove}>Borrar elemento del carrito</button>
+  
+
   {/* remplazar props al actualizar json */}
   {value ? <Link to="/cart"><button>Terminar mi compra</button></Link> : <ItemCount stock={true} max="5" onAdd={onAdd} />}
 

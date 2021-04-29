@@ -11,16 +11,18 @@ function App() {
   return (
   
   <Router>
-    <div className="App">
-      <Header/>
-      <Navigation/>
-      <Switch>
-        <Route path ="/" exact component={CardContainer}/>
-        <Route path ="/item/:id" component={ItemDetailContainer}/>
-        <Route path ="/category/:id" component={CardContainer}/>
-        <Route path ="/cart" component={Cart}/>
-      </Switch>
-    </div>
+    <CartProvider>
+      <div className="App">
+        <Header/>
+        <Navigation/>
+        <Switch>
+          <Route path ="/" exact component={CardContainer}/>
+          <Route path ="/item/:id" component={ItemDetailContainer}/>
+          <Route path ="/category/:id" component={CardContainer}/>
+          <Route path ="/cart" component={Cart}/>
+        </Switch>
+      </div>
+    </CartProvider>
   </Router>
   
   

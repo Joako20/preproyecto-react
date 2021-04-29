@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+
 
 const ItemCount = ({ stock, max, onAdd }) => {
-  console.log(onAdd);
+  
+  
   const [contador, setContador] = useState(1);
-  console.log(contador)
-
+  
+  
   const incrementar = () => {
     if (contador < max && stock === true) {
       setContador(contador + 1);
@@ -30,7 +32,8 @@ const ItemCount = ({ stock, max, onAdd }) => {
       <span>{contador}</span>
       <button onClick={incrementar}>+</button>
       <br />
-      <button onClick={handlerOnAdd}>Agregar al carrito</button></> 
+      <button onClick={handlerOnAdd}>Agregar al carrito</button>
+      </> 
       : <h2>No hay stock!!!</h2>
         
     }

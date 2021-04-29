@@ -22,7 +22,7 @@ function ItemDetailContainer() {
         
     },[id])
 
-    
+        
     return (
         <div>
             
