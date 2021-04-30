@@ -7,26 +7,29 @@ export function CartProvider({children}) {
 
 
 
-    const [compraId, setCompraId] = useState([])
-    console.log("carrito log:", compraId)
+    const [carritoState, setCarritoState] = useState([])
+    console.log("carrito log:", carritoState)
     
         
     function addItem(item,quantity){
-        console.log("carrito:", compraId)
+        console.log("carrito:", carritoState)
         let existId = false
-        if(compraId.length === 0){
+        if(carritoState.length === 0){
             console.log("Se ejecuta si array vacio")
-            compraId.push({item,quantity})
-            console.log("carrito:", compraId)
+            carritoState.push({item,quantity})
+            console.log("carrito:", carritoState)
             
         }
         else{
             console.log("Se ejecuta si array tiene productos")
             console.log(existId)
-            compraId.map((producto)=>{
+            carritoState.map((producto)=>{
                     if(producto.item.id === item.id){
                         existId = true
+                        console.log("cantidad",producto.quantity)
                         console.log(existId)
+                        producto.quantity = producto.quantity + quantity
+                        console.log("cantidad 2",producto.quantity)
                     } 
                 })
 
@@ -35,47 +38,35 @@ export function CartProvider({children}) {
                 console.log(existId)
             }
             else{
-                compraId.push({item,quantity})
+                carritoState.push({item,quantity})
             }
         }
 
-        console.log("carrito:", compraId)
-
-
-        // compraId.map((producto)=>{
-        //     if(producto.item.id === item.id){
-        //         console.log("no se ejecuta nada")
-        //     }
-        //     else{
-        //         compraId.push({item,quantity})
-        //         console.log("carrito:", compraId)
-        //     }
-        //     console.log(producto)
-        // })
-        // compraId.push({item,quantity})
+        console.log("carrito:", carritoState)
         return
 
     }
+    
     function removeItem(itemId){
-        console.log("carrito:", compraId)
-        compraId.map((producto)=>{
+        console.log("carrito:", carritoState)
+        carritoState.map((producto)=>{
             if(producto.item.id === itemId){
-                compraId.splice(compraId.indexOf(producto),1)
+                carritoState.splice(carritoState.indexOf(producto),1)
             }
         })
-        console.log("carrito:", compraId)
+        console.log("carrito:", carritoState)
         return
 
     }
 
     function clear(){
-        console.log("carrito:", compraId)
-        setCompraId([])
+        console.log("carrito:", carritoState)
+        setCarritoState([])
     }
     
     return (
     <CartContext.Provider value={{
-        compraId,addItem,setCompraId,removeItem,clear
+        carritoState,addItem,setCarritoState,removeItem,clear
     }}>
         {children}
     </CartContext.Provider>
